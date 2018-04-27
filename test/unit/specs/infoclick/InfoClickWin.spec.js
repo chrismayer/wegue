@@ -12,8 +12,6 @@ describe('infoclick/InfoClickWin.vue', () => {
   it('sets the correct default data', () => {
     expect(typeof InfoClickWin.data).to.equal('function');
     const defaultData = InfoClickWin.data();
-    expect(defaultData.show).to.equal(false);
-    expect(defaultData.icon).to.equal('info');
     expect(defaultData.coordsMapProj).to.equal('');
     expect(defaultData.coordsWgs84).to.equal('');
     expect(defaultData.coordsHdms).to.equal('');

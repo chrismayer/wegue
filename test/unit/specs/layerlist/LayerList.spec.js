@@ -7,7 +7,10 @@ describe('layerlist/LayerList.vue', () => {
   it('sets the correct default data', () => {
     expect(typeof LayerList.data).to.equal('function');
     const defaultData = LayerList.data();
-    expect(defaultData.show).to.equal(false);
+    expect(Array.isArray(defaultData.items)).to.equal(true);
+    expect(defaultData.items.length).to.equal(0);
+    expect(Array.isArray(defaultData.visibleLayers)).to.equal(true);
+    expect(defaultData.visibleLayers.length).to.equal(0);
   });
 
   // Mount an instance and inspect the render output

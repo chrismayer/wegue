@@ -1,33 +1,19 @@
-import Vue from 'vue'
-import MeasureWin from '@/components/measuretool/MeasureWin'
+import FloatingWin from '@/components/window/FloatingWindow'
+import DraggableWin from '@/directives/DraggableWin'
 
-describe('measuretool/MeasureWin.vue', () => {
+describe('window/FloatingWindow.vue', () => {
   // Evaluate the results of functions in
   // the raw component options
   it('sets the correct default data', () => {
-    expect(typeof MeasureWin.data).to.equal('function');
-    const defaultData = MeasureWin.data();
-    expect(defaultData.area).to.equal(' -- ');
-    expect(defaultData.distance).to.equal(' -- ');
-    expect(defaultData.measureType).to.equal('distance');
+    expect(typeof FloatingWin.data).to.equal('function');
+    const defaultData = FloatingWin.data();
     expect(defaultData.show).to.equal(false);
+    expect(defaultData.left).to.equal('100px');
+    expect(defaultData.top).to.equal('200px');
   });
 
-  it('has the correct functions', () => {
-    const Constructor = Vue.extend(MeasureWin);
-    const vm = new Constructor().$mount();
-    expect(typeof vm.createMeasureLayer).to.equal('function');
-    expect(typeof vm.addInteraction).to.equal('function');
-    expect(typeof vm.removeInteraction).to.equal('function');
-    expect(typeof vm.formatLength).to.equal('function');
-    expect(typeof vm.formatArea).to.equal('function');
+  it('has the correct directives', () => {
+    expect(typeof FloatingWin.directives).to.equal('object');
   });
 
-  // Mount an instance and inspect the render output
-  it('does not render on startup', () => {
-    const Constructor = Vue.extend(MeasureWin);
-    const vm = new Constructor().$mount();
-    // el is not undefined but this tests that it is not rendered
-    expect(vm.$el.textContent).to.equal('');
-  });
 });
