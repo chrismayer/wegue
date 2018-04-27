@@ -1,6 +1,6 @@
 <template>
 
-  <v-card v-draggable-win class="wgu-helpwin" v-if=show v-bind:style="{ left: left, top: top }">
+  <v-card v-draggable-win class="wgu-floatwin wgu-helpwin" v-if=show v-bind:style="{ left: left, top: top }">
     <v-toolbar class="red darken-3 white--text" dark>
       <v-toolbar-side-icon><v-icon>{{icon}}</v-icon></v-toolbar-side-icon>
       <v-toolbar-title>Help</v-toolbar-title>
@@ -26,33 +26,15 @@
 </template>
 
 <script>
-  import { DraggableWin } from '../../directives/DraggableWin.js';
+  import FloatingWin from '../window/FloatingWindow';
 
   export default {
-    directives: {
-      DraggableWin
-    },
-    props: ['icon', 'headline', 'content', 'infoLink', 'infoLinkText'],
-    data () {
-      return {
-        show: false,
-        left: '300px',
-        top: '300px'
-      }
-    }
+    extends: FloatingWin,
+    props: ['headline', 'content', 'infoLink', 'infoLinkText']
   }
 </script>
 
 <style>
-
-  .wgu-helpwin {
-    background-color: white;
-    z-index: 2;
-  }
-
-  .wgu-helpwin.card {
-    position: absolute;
-  }
 
   .wgu-helpwin .info-link {
     padding-left: 15px;

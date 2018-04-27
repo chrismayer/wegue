@@ -2,7 +2,7 @@
 
   <div class="">
 
-    <v-card v-draggable-win class="wgu-infoclick-win" v-if=show v-bind:style="{ left: left, top: top }">
+    <v-card v-draggable-win class="wgu-floatwin wgu-infoclick-win" v-if=show v-bind:style="{ left: left, top: top }">
       <v-toolbar class="red darken-3 white--text" dark>
         <v-toolbar-side-icon><v-icon>{{icon}}</v-icon></v-toolbar-side-icon>
         <v-toolbar-title>Map Click Info</v-toolbar-title>
@@ -64,18 +64,15 @@
 <script>
 
 import { WguEventBus } from '../../WguEventBus.js'
+import FloatingWin from '../window/FloatingWindow';
 import olProj from 'ol/proj'
 import olCoordinate from 'ol/coordinate'
 
 export default {
+  extends: FloatingWin,
   name: 'wgu-infoclick-win',
   data: function () {
     return {
-      show: false,
-      icon: 'info',
-      text: '',
-      left: '300px',
-      top: '300px',
       coordsMapProj: '',
       coordsWgs84: '',
       coordsHdms: '',
@@ -92,9 +89,6 @@ export default {
     });
   },
   methods: {
-    toggleUi () {
-      this.show = !this.show;
-    },
     registerMapClick () {
       var me = this;
 
@@ -145,15 +139,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
-  .wgu-infoclick-win {
-    background-color: white;
-    z-index: 2;
-  }
-
-  .wgu-infoclick-win.card {
-      position: absolute;
-  }
 
   .wgu-infoclick-win .card__title {
     display: inherit;

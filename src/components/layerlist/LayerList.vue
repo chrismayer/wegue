@@ -1,6 +1,6 @@
 <template>
 
-  <v-card v-draggable-win class="wgu-layerlist" v-if=show v-bind:style="{ left: left, top: top }">
+  <v-card v-draggable-win class="wgu-floatwin wgu-layerlist" v-if=show v-bind:style="{ left: left, top: top }">
     <v-toolbar class="red darken-3 white--text" dark>
       <v-toolbar-side-icon><v-icon>{{icon}}</v-icon></v-toolbar-side-icon>
       <v-toolbar-title>Layers</v-toolbar-title>
@@ -25,13 +25,11 @@
 </template>
 
 <script>
-  import { DraggableWin } from '../../directives/DraggableWin.js';
+  import FloatingWin from '../window/FloatingWindow';
   import { Mapable } from '../../mixins/Mapable';
 
   export default {
-    directives: {
-      DraggableWin
-    },
+    extends: FloatingWin,
     mixins: [Mapable],
     props: ['icon'],
     data () {
@@ -39,10 +37,7 @@
         // will be filled in createLayerItems
         items: [],
         // will be filled in createLayerItems a. adapted by the layer checkboxes
-        visibleLayers: [],
-        show: false,
-        left: '300px',
-        top: '70px'
+        visibleLayers: []
       }
     },
     methods: {
@@ -129,14 +124,6 @@
 </script>
 
 <style>
-
-  .wgu-layerlist {
-    background-color: white;
-    z-index: 2;
-  }
-  .wgu-layerlist.card {
-    position: absolute;
-  }
 
   .wgu-layerlist-item a.list__tile {
     padding-left: 0;

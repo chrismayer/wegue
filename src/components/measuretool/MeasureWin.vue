@@ -1,6 +1,6 @@
 <template>
 
-  <v-card v-draggable-win class="wgu-measurewin" v-if=show v-bind:style="{ left: left, top: top }">
+  <v-card v-draggable-win class="wgu-floatwin wgu-measurewin" v-if=show v-bind:style="{ left: left, top: top }">
     <v-toolbar class="red darken-3 white--text" dark>
       <v-toolbar-side-icon><v-icon>{{icon}}</v-icon></v-toolbar-side-icon>
       <v-toolbar-title>Measure</v-toolbar-title>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-  import { DraggableWin } from '../../directives/DraggableWin';
+  import FloatingWin from '../window/FloatingWindow'
   import { Mapable } from '../../mixins/Mapable';
   import DrawInteraction from 'ol/interaction/draw'
   import LineStringGeom from 'ol/geom/linestring'
@@ -53,19 +53,14 @@
   import Fill from 'ol/style/fill'
 
   export default {
-    directives: {
-      DraggableWin
-    },
+    extends: FloatingWin,
     mixins: [Mapable],
     props: ['icon'],
     data () {
       return {
         area: ' -- ',
         distance: ' -- ',
-        measureType: 'distance',
-        show: false,
-        left: '100px',
-        top: '200px'
+        measureType: 'distance'
       }
     },
     watch: {
@@ -241,15 +236,6 @@
 </script>
 
 <style>
-
-  .wgu-measurewin {
-    background-color: white;
-    z-index: 2;
-  }
-
-  .wgu-measurewin.card {
-    position: absolute;
-  }
 
   .measure-result {
     font-size: 14px;
