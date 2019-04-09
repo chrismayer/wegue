@@ -1,15 +1,29 @@
 <template>
   <v-app id="wgu-app" data-app :class="{ 'wgu-app': true, 'wgu-app-embedded': isEmbedded }">
 
-    <wgu-app-header :color="baseColor" />
+    <slot name="wgu-app-begin" />
+
+    <wgu-app-header :color="baseColor">
+      <!-- forward the slots of AppHeader -->
+      <slot name="wgu-tb-start" slot="wgu-tb-start" />
+      <slot name="wgu-tb-after-title" slot="wgu-tb-after-title" />
+      <slot name="wgu-tb-before-auto-buttons" slot="wgu-tb-before-auto-buttons" />
+      <slot name="wgu-tb-after-auto-buttons" slot="wgu-tb-after-auto-buttons" />
+      <slot name="wgu-tb-end" slot="wgu-tb-end" />
+    </wgu-app-header>
+
+    <slot name="wgu-after-header" />
 
     <wgu-app-logo />
+
+    <slot name="wgu-before-content" />
 
     <v-content>
       <v-container id="ol-map-container" fluid fill-height style="padding: 0">
          <wgu-map :color="baseColor" />
          <!-- layer loading indicator -->
          <wgu-maploading-status :color="baseColor" />
+         <slot name="wgu-after-map" />
       </v-container>
     </v-content>
 
@@ -19,8 +33,10 @@
         :color="baseColor"
         :draggable="moduleWin.draggable"
         :initPos="moduleWin.initPos"
-    />
+      />
     </template>
+
+    <slot name="wgu-before-footer" />
 
     <wgu-app-footer
       :color="baseColor"
@@ -28,6 +44,10 @@
       :footerTextRight="footerTextRight"
       :showCopyrightYear="showCopyrightYear"
     />
+
+    <slot name="wgu-after-footer" />
+
+    <slot name="wgu-app-end" />
 
   </v-app>
 </template>
@@ -45,7 +65,7 @@
   import MapLoadingStatus from './components/progress/MapLoadingStatus'
 
   export default {
-    name: 'wgu-app',
+    name: 'wgu-app-tpl',
     components: {
       'wgu-map': OlMap,
       'wgu-app-header': AppHeader,
