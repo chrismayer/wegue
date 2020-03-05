@@ -33,17 +33,28 @@ if (appCtx) {
   appCtxFile = '-' + appCtx.replace(/(\.\.[/])+/g, '');
 }
 
-fetch('static/app-conf' + appCtxFile + '.json')
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (appConfig) {
-    // make app config accessible for all components
-    Vue.prototype.$appConfig = appConfig;
-    /* eslint-disable no-new */
-    new Vue({
-      el: '#app',
-      template: '<wgu-app/>',
-      components: { WguApp }
-    });
+const createApp = function (appConfig) {
+  // make app config accessible for all components
+  Vue.prototype.$appConfig = appConfig;
+  /* eslint-disable no-new */
+  new Vue({
+    el: '#app',
+    template: '<wgu-app/>',
+    components: { WguApp }
   });
+};
+
+fetch('app/app-conf' + appCtxFile + '.json')
+  .then(function (response) {
+    return response.json().then(function (appConfig) {
+      console.log('app', appConfig);
+      createApp(appConfig);
+    })
+  }).catch(function () {
+    fetch('static/app-conf' + appCtxFile + '.json').then(function (response) {
+      return response.json().then(function (appConfig) {
+        console.log('static', appConfig);
+        createApp(appConfig);
+      })
+    })
+  })
