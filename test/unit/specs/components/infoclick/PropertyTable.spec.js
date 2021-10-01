@@ -25,10 +25,10 @@ describe('infoclick/PropertyTable.vue', () => {
       comp = shallowMount(PropertyTable);
     });
 
-    it('tableStyles returning correct color for given color', () => {
+    it('tableStyles returning correct color for given color', async () => {
       expect(comp.vm.tableStyles.border).to.equal('2px solid #c62828');
       const color = 'rgb(0,0,0)';
-      comp.setProps({ color: color });
+      await comp.setProps({ color: color });
       expect(comp.vm.tableStyles.border).to.equal('2px solid ' + color);
     });
   });

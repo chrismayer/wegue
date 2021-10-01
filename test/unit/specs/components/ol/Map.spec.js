@@ -171,7 +171,7 @@ describe('ol/Map.vue', () => {
       expect(typeof selectIa).to.not.equal('undefined');
     });
 
-    it('setOlButtonColor applies CSS color to OL buttons', () => {
+    it('setOlButtonColor applies CSS color to OL buttons', async () => {
       // mock a OL zoom button
       const mockZoomDiv = document.createElement('div');
       const mockSubZoomInEl = document.createElement('button');
@@ -191,7 +191,7 @@ describe('ol/Map.vue', () => {
       mockRotDiv.append(mockSubRotDiv);
       document.body.append(mockRotDiv);
 
-      comp.setProps({ color: 'rgb(0, 0, 0)' });
+      await comp.setProps({ color: 'rgb(0, 0, 0)' });
       vm.setOlButtonColor();
 
       expect(mockSubZoomInEl.style.backgroundColor).to.equal(vm.color);

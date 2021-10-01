@@ -3,21 +3,21 @@
       transition="scale-transition"
       v-model="show">
       <template v-slot:activator="{on}">
-        <v-btn-toggle borderless dense 
+        <v-btn-toggle borderless dense
           background-color="transparent" :dark="dark"
           :title="$t('wgu-localeswitcher.title')"
           v-model="show">
           <v-btn class="ma-2" icon :value="true" v-on="on" >
             <v-icon class="mr-1" medium>{{icon}}</v-icon>
-            {{ $i18n.locale }} 
+            {{ $i18n.locale }}
           </v-btn>
         </v-btn-toggle>
       </template>
-    
+
       <v-list>
-        <v-list-item class="wgu-langlist-item" 
-          v-for="langCode in Object.keys(lang)" 
-          :key="langCode" 
+        <v-list-item class="wgu-langlist-item"
+          v-for="langCode in Object.keys(lang)"
+          :key="langCode"
           @click="onItemClick(langCode)">
           <v-list-item-content class="black--text">
             <v-list-item-title>

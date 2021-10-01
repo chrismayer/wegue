@@ -1,6 +1,6 @@
-<!-- TODO 
+<!-- TODO
   This component is no longer in use,
-  if we decide to revive this, i18n internationalization has to be provided 
+  if we decide to revive this, i18n internationalization has to be provided
 -->
 
 <template>

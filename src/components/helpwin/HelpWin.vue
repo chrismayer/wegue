@@ -1,7 +1,7 @@
 <template>
   <wgu-module-card v-bind="$attrs"
       :moduleName="moduleName"
-      class="wgu-helpwin" 
+      class="wgu-helpwin"
       :icon="icon"
       :width="width">
     <v-card-title primary-title>
@@ -25,28 +25,28 @@
 </template>
 
 <script>
-  import ModuleCard from './../modulecore/ModuleCard';
+import ModuleCard from './../modulecore/ModuleCard';
 
-  export default {
-    name: 'wgu-helpwin-win',
-    inheritAttrs: false,
-    components: {
-      'wgu-module-card': ModuleCard
-    },
-    props: {
-      icon: { type: String, required: false, default: 'help' },
-      width: { type: Number, required: false, default: 300 }
-    },
-    data () {
-      return {
-        moduleName: 'wgu-helpwin'
-      }
+export default {
+  name: 'wgu-helpwin-win',
+  inheritAttrs: false,
+  components: {
+    'wgu-module-card': ModuleCard
+  },
+  props: {
+    icon: { type: String, required: false, default: 'help' },
+    width: { type: Number, required: false, default: 300 }
+  },
+  data () {
+    return {
+      moduleName: 'wgu-helpwin'
     }
   }
+}
 </script>
 
 <style scoped>
-  /* TODO 
+  /* TODO
     Generalize the positioning concept for windows,
     this interferes with positioning and draggable settings in the app.conf */
   .wgu-helpwin.wgu-floating {

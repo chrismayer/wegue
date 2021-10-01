@@ -83,13 +83,13 @@ describe('bglayerswitcher/LayerPreviewImage.vue', () => {
       expect(vm.previewURL).to.equal('https://b.tile.openstreetmap.org/2/2/2.png');
     });
 
-    it('has correct previewURL for static layer image', () => {
+    it('has correct previewURL for static layer image', async () => {
       const osmLayer2 = new TileLayer({
         source: new OSM(),
         previewImage: 'http://my-image.png'
       });
 
-      comp.setProps({ layer: osmLayer2 });
+      await comp.setProps({ layer: osmLayer2 });
       expect(vm.previewURL).to.equal('http://my-image.png');
     });
 

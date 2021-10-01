@@ -1,13 +1,13 @@
 <template>
   <wgu-module-card v-bind="$attrs"
       :moduleName="moduleName"
-      class="wgu-maprecorder-win" 
-      :icon="icon" 
+      class="wgu-maprecorder-win"
+      :icon="icon"
       width=350>
-    
+
     <v-expansion-panels :multiple="true" :accordion="true" class="overflow-y-auto">
       <v-expansion-panel>
-        <v-expansion-panel-header> 
+        <v-expansion-panel-header>
           <v-layout align-center>
             <v-icon class="mr-4">settings</v-icon>
             {{ $t('wgu-maprecorder.options') }}
@@ -76,14 +76,14 @@
       <v-layout align-center>
         <v-btn
           class="mr-3"
-          icon 
+          icon
           fab
-          outlined 
+          outlined
           @click="toggleRecord">
-          <v-icon v-if="recording">stop</v-icon> 
-          <v-icon v-else color="red darken-4">fiber_manual_record</v-icon> 
+          <v-icon v-if="recording">stop</v-icon>
+          <v-icon v-else color="red darken-4">fiber_manual_record</v-icon>
         </v-btn>
-        <v-flex fill-height grow> 
+        <v-flex fill-height grow>
           <v-progress-linear
             :active="recording"
             buffer-value="0"
@@ -93,7 +93,7 @@
         <v-flex fill-height shrink>
            <v-alert
             v-model="error"
-            type="error" 
+            type="error"
             dismissible>
             {{ $t('wgu-maprecorder.error') }}
           </v-alert>

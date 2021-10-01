@@ -1,39 +1,18 @@
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "corejs": { "version": 3, "proposals": true },
-        "useBuiltIns": "usage",
-        "modules": false,
-        "targets": {
-          "browsers": [
-            "> 1%",
-            "last 2 versions",
-            "not ie <= 8"
-          ]
-        }
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
       }
-    ]
+    }],
+    "stage-2"
   ],
-  "plugins": [
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "corejs": 3
-      }
-    ],
-    "@babel/plugin-proposal-class-properties"
-  ],
+  "plugins": ["transform-vue-jsx", "transform-runtime"],
   "env": {
     "test": {
-      "presets": [
-        "@babel/preset-env"
-      ],
-      "plugins": [
-        "istanbul",
-        "@babel/plugin-proposal-class-properties"
-      ]
+      "presets": ["env", "stage-2"],
+      "plugins": ["transform-vue-jsx", "istanbul"]
     }
   }
 }

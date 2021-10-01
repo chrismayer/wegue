@@ -9,7 +9,7 @@
       <template v-slot:activator="{on}">
         <v-sheet class="wgu-bglayerswitcher">
           <v-btn v-on="on"
-            :color="color" 
+            :color="color"
             :dark="dark"
             fab
             :title="$t('wgu-bglayerswitcher.title')"
@@ -18,7 +18,7 @@
           </v-btn>
         </v-sheet>
       </template>
-      <!-- Remarks: The layerlist is wrapped by an v-if block to avoid unneccesary image 
+      <!-- Remarks: The layerlist is wrapped by an v-if block to avoid unneccesary image
            requests when the layerlist is not visible -->
       <wgu-bglayerlist v-if="show"
         color="white"

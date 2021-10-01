@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import { shallowMount } from '@vue/test-utils';
-import WguAppTpl from 'APP/WguAppTemplate';
+import { shallowMount } from '@vue/test-utils'
+import WguAppTpl from 'APP/WguAppTemplate'
 
 describe('WguAppTpl.vue', () => {
   // Inspect the raw component options

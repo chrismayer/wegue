@@ -30,7 +30,7 @@
          done in FeatureInfoWindow -->
     <div v-if="this.showMedia">
 
-      <v-card-text v-if="!this.attributeData" class="no-data"> 
+      <v-card-text v-if="!this.attributeData" class="no-data">
         {{ $t('wgu-infoclick.mediaClick') }}
       </v-card-text>
 

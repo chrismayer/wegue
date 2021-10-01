@@ -1,5 +1,5 @@
 <template>
-  <v-btn-toggle borderless dense 
+  <v-btn-toggle borderless dense
     background-color="transparent" :dark="dark"
     :title="$t(moduleName + '.title')"
     v-model="show">

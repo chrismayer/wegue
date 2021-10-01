@@ -2,6 +2,9 @@
   "env": {
     "mocha": true
   },
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
   "globals": {
     "expect": true,
     "sinon": true
