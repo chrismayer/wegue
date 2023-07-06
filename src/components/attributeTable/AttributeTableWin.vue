@@ -1,8 +1,8 @@
 <template>
   <wgu-module-card v-bind="$attrs"
     :moduleName="moduleName"
-    class="wgu-attributetable-win" 
-    :icon="icon" 
+    class="wgu-attributetable-win"
+    :icon="icon"
   >
 
     <template v-slot:wgu-win-toolbar>
@@ -15,7 +15,7 @@
         outlined
         class="wgu-vector-layer-select wgu-solo-field"
         :items="displayedLayers"
-		    :item-text="item => item.get('name')"
+        :item-text="item => item.get('name')"
         :menu-props="{
           bottom: true,
           'offset-y': true,
@@ -26,7 +26,7 @@
         :label="$t('wgu-attributetable.selectorLabel')"
         ></v-select>
     </template>
-  
+
     <wgu-attributetable
       v-if="selLayer"
       :layerId="selLayer.get('lid')"
@@ -91,7 +91,7 @@ export default {
 
 <style scoped>
 
-  /* TODO 
+  /* TODO
     Generalize the positioning concept for windows,
     this interferes with positioning and draggable settings in the app.conf */
 
