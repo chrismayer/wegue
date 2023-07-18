@@ -3,6 +3,9 @@ import LayerPreviewImage from '@/components/bglayerswitcher/LayerPreviewImage';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import View from 'ol/View';
+import Vuetify from 'vuetify';
+
+const vuetify = new Vuetify();
 
 const osmLayer = new TileLayer({
   source: new OSM()
@@ -32,7 +35,8 @@ describe('bglayerswitcher/LayerPreviewImage.vue', () => {
     let vm;
     beforeEach(() => {
       comp = shallowMount(LayerPreviewImage, {
-        propsData: moduleProps
+        propsData: moduleProps,
+        vuetify
       });
       vm = comp.vm;
     });
@@ -55,7 +59,8 @@ describe('bglayerswitcher/LayerPreviewImage.vue', () => {
     let vm;
     beforeEach(() => {
       comp = shallowMount(LayerPreviewImage, {
-        propsData: moduleProps
+        propsData: moduleProps,
+        vuetify
       });
       vm = comp.vm;
     });
@@ -74,13 +79,14 @@ describe('bglayerswitcher/LayerPreviewImage.vue', () => {
     let vm;
     beforeEach(() => {
       comp = shallowMount(LayerPreviewImage, {
-        propsData: moduleProps
+        propsData: moduleProps,
+        vuetify
       });
       vm = comp.vm;
     });
 
     it('has correct previewURL for OSM', () => {
-      expect(vm.previewURL).to.equal('https://b.tile.openstreetmap.org/2/2/2.png');
+      expect(vm.previewURL).to.equal('https://tile.openstreetmap.org/2/2/2.png');
     });
 
     it('has correct previewURL for static layer image', async () => {

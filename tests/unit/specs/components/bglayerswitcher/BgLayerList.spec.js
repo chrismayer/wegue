@@ -3,6 +3,9 @@ import BgLayerList from '@/components/bglayerswitcher/BgLayerList';
 import OlMap from 'ol/Map';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
+import Vuetify from 'vuetify';
+
+const vuetify = new Vuetify();
 
 const moduleProps = {
   imageWidth: 152,
@@ -24,7 +27,8 @@ describe('bglayerswitcher/BgLayerList.vue', () => {
     let vm;
     beforeEach(() => {
       comp = shallowMount(BgLayerList, {
-        propsData: moduleProps
+        propsData: moduleProps,
+        vuetify
       });
       vm = comp.vm;
     });
@@ -45,7 +49,8 @@ describe('bglayerswitcher/BgLayerList.vue', () => {
     let vm;
     beforeEach(() => {
       comp = shallowMount(BgLayerList, {
-        propsData: moduleProps
+        propsData: moduleProps,
+        vuetify
       });
       vm = comp.vm;
     });
@@ -66,7 +71,8 @@ describe('bglayerswitcher/BgLayerList.vue', () => {
     let vm;
     beforeEach(() => {
       comp = shallowMount(BgLayerList, {
-        propsData: moduleProps
+        propsData: moduleProps,
+        vuetify
       });
       vm = comp.vm;
     });
@@ -129,7 +135,8 @@ describe('bglayerswitcher/BgLayerList.vue', () => {
     let vm;
     beforeEach(() => {
       comp = shallowMount(BgLayerList, {
-        propsData: moduleProps
+        propsData: moduleProps,
+        vuetify
       });
       vm = comp.vm;
     });

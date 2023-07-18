@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import { mount, shallowMount } from '@vue/test-utils';
 import LocaleSwitcher from '@/components/localeswitcher/LocaleSwitcher';
+import Vuetify from 'vuetify';
+
+const vuetify = new Vuetify();
 
 const appConfig = {
   lang: {
@@ -21,7 +24,7 @@ describe('localeswitcher/LocaleSwitcher.vue', () => {
     let comp;
     let vm;
     beforeEach(() => {
-      comp = shallowMount(LocaleSwitcher);
+      comp = shallowMount(LocaleSwitcher, { vuetify });
       vm = comp.vm;
     });
 
@@ -39,7 +42,7 @@ describe('localeswitcher/LocaleSwitcher.vue', () => {
     let vm;
     beforeEach(() => {
       Vue.prototype.$appConfig = appConfig;
-      comp = shallowMount(LocaleSwitcher);
+      comp = shallowMount(LocaleSwitcher, { vuetify });
       vm = comp.vm;
     });
 
@@ -62,9 +65,7 @@ describe('localeswitcher/LocaleSwitcher.vue', () => {
     beforeEach(() => {
       Vue.prototype.$appConfig = appConfig;
       comp = mount(LocaleSwitcher, {
-        created () {
-          this.$vuetify.lang = { current: 'en' };
-        }
+        vuetify
       });
       vm = comp.vm;
     });

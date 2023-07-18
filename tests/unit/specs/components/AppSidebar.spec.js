@@ -1,13 +1,16 @@
 import AppSidebar from 'APP/components/AppSidebar';
 import { WguEventBus } from '@/WguEventBus';
 import { shallowMount } from '@vue/test-utils';
+import Vuetify from 'vuetify';
+
+const vuetify = new Vuetify();
 
 describe('AppSidebar.vue', () => {
   describe('data', () => {
     let comp;
     let vm;
     beforeEach(() => {
-      comp = shallowMount(AppSidebar);
+      comp = shallowMount(AppSidebar, { vuetify });
       vm = comp.vm;
     });
 
@@ -20,7 +23,7 @@ describe('AppSidebar.vue', () => {
     let comp;
     let vm;
     beforeEach(() => {
-      comp = shallowMount(AppSidebar);
+      comp = shallowMount(AppSidebar, { vuetify });
       vm = comp.vm;
     });
 

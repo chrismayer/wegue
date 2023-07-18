@@ -58,7 +58,7 @@ describe('infoclick/CoordsTable.vue', () => {
       const expextedCoordRows = {
         'MAP PROJ': '1.00 1.00',
         'WGS 84': '1.0000000° 1.0000000°',
-        'HDMS': '1° 00′ 00″ N 1° 00′ 00″ E'
+        'HDMS': '1° N 1° E'
       };
       /* eslint-enable quote-props */
       comp.vm.$nextTick(() => {
