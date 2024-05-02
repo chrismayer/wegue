@@ -185,10 +185,16 @@ const createApp = function (appConfig) {
   // make app config accessible for all components
   Vue.prototype.$appConfig = migrateAppConfig(appConfig);
 
+  // const appTpl = appConfig.appTpl || 'WguApp';
+  // const WguApp = await import(`../app/${appTpl}.vue`);
+  // const WguApp = await import('../app/WguApp.vue');
+  // console.log(WguApp);
+
   new Vue({
     vuetify: createVuetify(appConfig),
     i18n: createVueI18n(appConfig),
     render: h => h(WguApp)
+    // render: h => h(WguApp.default)
   }).$mount('#app');
 };
 
