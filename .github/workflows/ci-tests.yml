@@ -16,3 +16,21 @@ jobs:
       - run: npm run init:app
       - run: npm run lint
       - run: npm run test
+
+  run-ui-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: npm ci
+      - run: npm run init:app
+      - run: npm run build
+      - name: Serve Build
+        uses: Eun/http-server-action@v1
+        with:
+          directory: ./dist # sets the folder to serve from
+          port: 8080
+          index-files: |
+            ["index.html"]
+      - run: cd ui-tests && npm ci
+      - run: cd ui-tests && WEGUE_APP_BASEURL=http://localhost:8080 npm run test
