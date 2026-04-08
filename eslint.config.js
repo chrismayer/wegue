@@ -75,5 +75,26 @@ export default defineConfig([
     rules: {
       'no-unused-expressions': 'off'
     }
+  },
+
+  {
+    // Test file overrides
+    files: [
+      '**/ui-tests/tests/**/*.test.{j,t}s?(x)',
+      '**/ui-tests/utils/**/*.{j,t}s?(x)'
+    ],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.mocha,
+        ...globals.chai,
+        sinon: 'readonly',
+        beforeAll: 'readonly'
+      }
+    },
+    rules: {
+      'no-unused-expressions': 'off'
+    }
   }
 ]);

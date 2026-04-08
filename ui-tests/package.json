@@ -1,0 +1,19 @@
+{
+  "name": "wegue-ui-tests",
+  "version": "0.0.0",
+  "author": "Wegue Developers",
+  "description": "Vitest Puppeteer based UI tests for the Wegue webapp",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wegue-oss/wegue.git"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:dev": "vitest watch"
+  },
+  "dependencies": {
+    "puppeteer": "^24.28.0",
+    "vitest": "^4.0.6"
+  }
+}
